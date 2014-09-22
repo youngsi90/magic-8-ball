@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Magic 8 Ball</title>
+	<style>
+		body{
+			background:black;
+			color:white;
+			
+		}
+		#eight-ball {
+			margin: 0 auto;
+			text-align: center;
+			font-family: Helvetica;
+			font-size:30px;
+			font-weight: bold;
+		}
+		
+		img{
+			border: 2px solid gold;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="eight-ball">
+		<button onclick="shake()">Shake!</button>
+		<p id="question"></p>
+		<p id="answer"></p>
+	</div>
+</body>
+
+<script>
+
+	function shake(){
+		var question = prompt("Ask me a question");
+		var questionText = document.getElementById('question');
+		questionText.innerHTML = question;
+		
+		var numberOfAnswers = 7;
+		
+		var answerOne = '<img src="images/no.png"/>';
+		var answerTwo = '<img src="images/yes.png"/>';
+		var answerThree = '<img src="images/yousuck.jpg"/>';
+		var answerFour = '<img src="images/yourwrong.png"/>';
+		var answerFive = '<img src="images/youramazing.png"/>';
+		var answerSix = '<img src="images/maybe.png"/>';
+		var answerSeven = '<img src="images/yourbeautiful.png"/>';
+	
+	function getAnswerNumber(answerCount){
+		var number = getRandomInt(1,answerCount);
+		return number;
+	}
+	
+	function getRandomInt(min,max){
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	
+	function displayAnswer(answer) {
+		var fortuneText = document.getElementById('answer');
+		
+		if ( answer == 1) {
+			fortuneText.innerHTML = answerOne;
+		}
+		else if ( answer == 2 ) {
+			fortuneText.innerHTML = answerTwo;
+		}
+		else if ( answer == 3 ) {
+			fortuneText.innerHTML = answerThree;
+		}
+		else if ( answer == 4 ) {
+			fortuneText.innerHTML = answerFour;
+		}
+		else if ( answer == 5 ) {
+			fortuneText.innerHTML = answerFive;
+		}
+		else if ( answer == 6 ) {
+			fortuneText.innerHTML = answerSix;
+		}
+		else if ( answer == 7 ) {
+			fortuneText.innerHTML = answerSeven;
+		}
+	}
+	
+
+	var chosenAnswer = getAnswerNumber (numberOfAnswers);
+	displayAnswer(chosenAnswer);
+}
+</script>
+
+</html>
